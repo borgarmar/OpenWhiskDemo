@@ -16,10 +16,10 @@ angular.module('starter', ['starter.controllers'])
 
       $http({
         method: 'POST',
-        url: 'https://openwhisk.ng.bluemix.net/api/v1/namespaces/maria.borbones%40es.ibm.com_TechFoundation/actions/My%20Action%20Sequence?blocking=true',
+        url: 'https://openwhisk.ng.bluemix.net/api/v1/namespaces/******/actions/My%20Action%20Sequence?blocking=true',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Basic ZDc1MThkYmUtNWE3Ni00NGM2LTgzZmQtNzgxYTRlOTU2YWExOmg5ZzlsZ2prOXhXSUVJR2lxYm41THdVeTViOVc1ZmZkUElWVExGNjZ3bXJHamNQaGFCMDBEMXA4S2tnTG9Tdms='
+          'Authorization': 'Basic *****'
         },
         data: { "lat": lat, "lng": lng}
       }).then(function successCallback(response) {
