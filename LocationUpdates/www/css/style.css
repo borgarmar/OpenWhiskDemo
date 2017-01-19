@@ -1,0 +1,21 @@
+/* Empty. Add your own CSS if you like */
+
+.weather{
+  background-color: #ec4444 !important;
+
+}
+
+.subdued{
+  color: white !important;
+
+}
+
+.weatherdesc{
+  color:white !important;
+  font-weight: bold;
+}
+
+.white{
+  color: white !important;
+  font-weight: bold;
+}

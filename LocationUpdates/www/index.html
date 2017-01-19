@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <meta name="author" content="Maria Borbones">
+  <meta name="description" content="OpenWhisk Demo App">
+  <title></title>
+
+  <link rel="manifest" href="manifest.json">
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!--Weather CSS -->
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="css/style1.css" />
+
+
+  <script src="lib/ionic/js/angular/angular.js"></script>
+
+
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+
+</head>
+
+<body ng-app="starter" class="demo-1" ng-controller="AppCtrl">
+
+  <div class="image-preload">
+    <img src="img/drop-color.png" alt="">
+    <img src="img/drop-alpha.png" alt="">
+    <img src="img/weather/texture-rain-fg.png" />
+    <img src="img/weather/texture-rain-bg.png" />
+    <img src="img/weather/texture-sun-fg.png" />
+    <img src="img/weather/texture-sun-bg.png" />
+    <img src="img/weather/texture-fallout-fg.png" />
+    <img src="img/weather/texture-fallout-bg.png" />
+    <img src="img/weather/texture-drizzle-fg.png" />
+    <img src="img/weather/texture-drizzle-bg.png" />
+  </div>
+  <div class="container">
+
+
+    <div class="slideshow">
+      <canvas width="1" height="1" id="container" style="position:absolute"></canvas>
+      <!-- Heavy Rain -->
+      <div class="slide" id="slide-3" data-weather="sunny">
+        <div class="slide__element" >
+          <h3 style="color:black">Thursday</h3></div>
+          <div class="slide__element ">
+            <h3 style="color:black">{{weatherdesc}}</h3></div>
+          <div class="slide__element">
+            <h5 style="color:black">lat:{{geolocation.latitude}} lng: {{geolocation.longitude}}</h5></div>
+        <div class="slide__element slide__element--temp" >
+          <div class="row">
+            <div class="col"><img ng-src={{wicon}} width="50" /></div>
+            <div class="col" style="color:black">{{grados}}°<small>C</small></div>
+          </div>
+        </div>
+
+
+
+        <ul class="list-group" style="background-color: rgba(0, 0, 0, 0.3) !important;color:white;">
+          <li class="list-group-item" ng-repeat="item in items">
+            <div class="row">
+            <div class="col"><img ng-src="img/weathericons/icon{{item.day.icon_code}}.png" width="20" />{{item.day.temp}}°<small>C</small></div>
+            <div class="col day">{{item.dow}}</div>
+          </div></li>
+
+        </ul>
+
+      </div>
+      <!---->
+      <div class="slide" id="slide-2" data-weather="drizzle">
+        <div class="slide__element" >
+          <h3 style="color:black">Thursday</h3></div>
+          <div class="slide__element ">
+            <h3 style="color:black">{{weatherdesc}}</h3></div>
+          <div class="slide__element">
+            <h5 style="color:black">lat:{{geolocation.latitude}} lng: {{geolocation.longitude}}</h5></div>
+        <div class="slide__element slide__element--temp" >
+          <div class="row">
+            <div class="col"><img ng-src={{wicon}} width="50" /></div>
+            <div class="col" style="color:black">{{grados}}°<small>C</small></div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+      <!-- Sunny-->
+      <div class="slide" id="slide-1" data-weather="rain">
+        <div class="slide__element" >
+          <h3 style="color:black">Thursday</h3></div>
+          <div class="slide__element ">
+            <h3 style="color:black">{{weatherdesc}}</h3></div>
+          <div class="slide__element">
+            <h5 style="color:black">lat:{{geolocation.latitude}} lng: {{geolocation.longitude}}</h5></div>
+        <div class="slide__element slide__element--temp" >
+          <div class="row">
+            <div class="col"><img ng-src={{wicon}} width="50" /></div>
+            <div class="col" style="color:black">{{grados}}°<small>C</small></div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+      <!-- Heavy rain-->
+      <div class="slide" id="slide-5" data-weather="storm">
+        <div class="slide__element" >
+          <h3 style="color:black">Thursday</h3></div>
+          <div class="slide__element ">
+            <h3 style="color:black">{{weatherdesc}}</h3></div>
+          <div class="slide__element">
+            <h5 style="color:black">lat:{{geolocation.latitude}} lng: {{geolocation.longitude}}</h5></div>
+        <div class="slide__element slide__element--temp" >
+          <div class="row">
+            <div class="col"><img ng-src={{wicon}} width="50" /></div>
+            <div class="col" style="color:black">{{grados}}°<small>C</small></div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+      <!-- Fallout (greenish overlay with slightly greenish/yellowish drops)-->
+      <div class="slide" id="slide-4" data-weather="fallout">
+        <div class="slide__element" >
+          <h3 style="color:black">Thursday</h3></div>
+          <div class="slide__element ">
+            <h3 style="color:black">{{weatherdesc}}</h3></div>
+          <div class="slide__element">
+            <h5 style="color:black">lat:{{geolocation.latitude}} lng: {{geolocation.longitude}}</h5></div>
+        <div class="slide__element slide__element--temp" >
+          <div class="row">
+            <div class="col"><img ng-src={{wicon}} width="50" /></div>
+            <div class="col" style="color:black">{{grados}}°<small>C</small></div>
+          </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <p class="nosupport">Sorry, but your browser does not support WebGL!</p>
+  </div>
+  <!-- /container -->
+
+
+  </div>
+</div>
+
+
+
+
+  <script src="js/index.min.js"></script>
+</body>
+
+</html>
